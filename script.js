@@ -36,6 +36,35 @@ const evenOddFunction = function (ranNum) {
 const evens = [];
 const odds = [];
 
+///////////////////////////////// BELOW IS THE EASY (2) SECTION OF THE ASSIGNMENT
+//// DRIVER: BELLUL     NAVIAGATOR: LEE
+
+// EASY (2)
+// Create a function that checks an array for prime numbers then inserts any pimes into a new array.                               
+// Example 1:                                                                                                                                       
+// Input: numArray = [1,2,3,4,5,6,7,8,9,10]
+// Output: primeArray = [2,3,5,7]
+// Example 2:
+// Input: numArray = [10, 18, 19, 29, 33, 35, 47, 66, 83] 
+// Output: primeArray = [19 ,29 ,47 , 83]
+
+let num = [ 3, 11, 29, 82, 4, 84, 36, 53, 47]
+
+const checkPrime = num.filter(function(number) {
+  if (number <= 1) {
+    return false;
+  } else {
+    for (let i = 2; i < number; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+});
+
+console.log(checkPrime)
+
 ///////////////////////////////// BELOW IS THE MEDIUM (1) SECTION OF THE ASSIGNMENT
 //// DRIVER: LEE     NAVIAGATOR: BELLUL
 
@@ -62,3 +91,34 @@ function isVowel(str) {
 
 isVowel("o");
 
+///////////////////////////////// BELOW IS THE MEDIUM (2) SECTION OF THE ASSIGNMENT
+//// DRIVER: BELLUL     NAVIAGATOR: LEE
+
+// MEDIUM (2)
+// Create a function that accepts two strings, then determines whether or not the first string is an anagram of the 
+// second string by returning a boolean. 
+// Example:
+// Input: String 1: So dark the con of man
+//  String 2: Madonna of the Rocks
+// Output: True
+// Input: String 1: Things are good
+//   String 2: Dogs eat ants
+// Output: False
+
+const anagram = function(str1, str2) {
+    // let len1 = str1.length;
+    // let len2 = str2.length;
+    // if(len1 !== len2) {
+    //     console.log('Invalid Input')
+    //     return
+    // }
+    let string1 = str1.split('').sort().join('');
+    let string2 = str2.split('').sort().join('');
+    if(string1 === string2){
+        console.log('True');
+    } else {
+        console.log('False');
+    }
+}
+
+anagram('indian' , 'ndiian')
