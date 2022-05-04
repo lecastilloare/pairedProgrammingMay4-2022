@@ -1,6 +1,6 @@
 "use strict";
 
-////////////////////////////// THE BELOW IS FOR THE EASY (1) SECTION OF THE ASSIGNMENT
+////////////////////////////// THE BELOW IS FOR THE EASY (1) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////
 //// DRIVER: LEE     NAVIAGATOR: BELLUL
 
 // Write a JavaScript function that takes in a random array and outputs two new arrays of odd numbers and even 
@@ -36,7 +36,7 @@ const evenOddFunction = function (ranNum) {
 const evens = [];
 const odds = [];
 
-///////////////////////////////// BELOW IS THE EASY (2) SECTION OF THE ASSIGNMENT
+///////////////////////////////// THE BELOW IS THE EASY (2) SECTION OF THE ASSIGNMENT /////////////////////////////////////////////////////////////////////
 //// DRIVER: BELLUL     NAVIAGATOR: LEE
 
 // EASY (2)
@@ -65,7 +65,7 @@ const checkPrime = num.filter(function (number) {
 
 console.log(checkPrime)
 
-///////////////////////////////// BELOW IS THE MEDIUM (1) SECTION OF THE ASSIGNMENT
+///////////////////////////////// BELOW IS THE MEDIUM (1) SECTION OF THE ASSIGNMENT /////////////////////////////////////////////////////////////////////////////
 //// DRIVER: LEE     NAVIAGATOR: BELLUL
 
 // MEDIUM(1)
@@ -91,71 +91,76 @@ console.log(checkPrime)
 
 // isVowel("o");
 
-///////////////////////////////// BELOW IS THE MEDIUM (2) SECTION OF THE ASSIGNMENT
-//// DRIVER: BELLUL     NAVIAGATOR: LEE
+///////////////////////////////// BELOW IS THE MEDIUM (2) SECTION OF THE ASSIGNMENT //////////////////////////////////////////////////////////////////////////////
+/* DRIVER: BELLUL     NAVIAGATOR: LEE
 
-// MEDIUM (2)
-// Create a function that accepts two strings, then determines whether or not the first string is an anagram of the 
-// second string by returning a boolean. 
-// Example:
-// Input: String 1: So dark the con of man
-//  String 2: Madonna of the Rocks
-// Output: True
-// Input: String 1: Things are good
-//   String 2: Dogs eat ants
-// Output: False
+MEDIUM (2): Create a function that accepts two strings, then determines whether or not the first string is an anagram of the second string by returning a boolean. 
+Example: Input: String 1: So dark the con of man  String 2: Madonna of the Rocks
+Output: True
 
-// const anagram = function (str1, str2) {
-//     // let len1 = str1.length;
-//     // let len2 = str2.length;
-//     // if(len1 !== len2) {
-//     //     console.log('Invalid Input')
-//     //     return
-//     // }
-//     let string1 = str1.split('').sort().join('');
-//     let string2 = str2.split('').sort().join('');
-//     if (string1 === string2) {
-//         console.log('True');
-//     } else {
-//         console.log('False');
-//     }
-// }
+Example: Input: String 1: Things are good String 2: Dogs eat ants
+Output: False 
 
-// anagram('indian', 'ndiian')
+NOTES: Account for case sensitivity and spaces
+*/
 
+const stringAnagram = function (str1, str2) {
 
-///////////////////////////////// BELOW IS THE MEDIUM (3) SECTION OF THE ASSIGNMENT //////////////////////////
-//// DRIVER: Lee     NAVIAGATOR: BELLUL
+    /* 
+    - The replaceAll() is looking for any spaces and replacing it with an empty string, thus getting rid of the spaces. 
+    - toLowerCase() is accounting for case sensititvity
+    - split() is lookng for an empty string which is going to be the space between all the characters, it then makes an array with each individual string character in its own index
+    - sort() takes the array and sorts the values in alphabetical order or ascending order
+    - join() then takes the values of the array and places the parameter you give it in between each item of the array and makes it all one big string again
+    */
 
-// MEDIUM(3)
-// Write a function that takes in two numbers and determines the largest positive integer that divides the two
-// numbers without a remainder.
-// Example 1:
-// Input: gdc_two_numbers(336,360)
-// Output: 24
-// Example 2:
-// Input: gdc_two_numbers(78,126)
-// Output: 6
+    let phrase1 = str1.replaceAll(" ", "").toLowerCase().split("").sort().join("");
+    let phrase2 = str2.replaceAll(" ", "").toLowerCase().split("").sort().join("");
 
+    if (phrase1 === phrase2) {
+        return true; // console.log("True: These two strings are anagrams");
 
-const biggestRemainder = function (num1, num2) {
-
-    var x = Math.abs(num1);
-    var y = Math.abs(num2);
-
-
-    if ((typeof x !== "number") || (typeof y != "number")) {
-        return false;
+    } else {
+        return false; // console.log("False: These two strings are NOT anagrams");
     }
-
-    while (y) {
-        var e = y;
-        y = x % y;
-        x = e
-    }
-
-    return x
-
 }
 
-console.log(biggestRemainder(336, 360));
+console.log(stringAnagram("So dark the con of man", "Madonna of the Rocks"));
+
+
+///////////////////////////////// BELOW IS THE MEDIUM (3) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////////
+    //// DRIVER: Lee     NAVIAGATOR: BELLUL
+
+    // MEDIUM(3)
+    // Write a function that takes in two numbers and determines the largest positive integer that divides the two
+    // numbers without a remainder.
+    // Example 1:
+    // Input: gdc_two_numbers(336,360)
+    // Output: 24
+    // Example 2:
+    // Input: gdc_two_numbers(78,126)
+    // Output: 6
+
+
+    // const biggestRemainder = function (num1, num2) {
+
+    //     var x = Math.abs(num1);
+    //     var y = Math.abs(num2);
+
+
+    //     if ((typeof x !== "number") || (typeof y != "number")) {
+    //         return false;
+    //     }
+
+    //     while (y) {
+    //         var e = y;
+    //         y = x % y;
+    //         x = e
+    //     }
+
+    //     return x
+
+    // }
+
+    // console.log(biggestRemainder(336, 360));
+
