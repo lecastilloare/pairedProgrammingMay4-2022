@@ -1,6 +1,6 @@
 "use strict";
 
-////////////////////////////// THE BELOW IS FOR THE EASY (1) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////
+////////////////////////////// THE BELOW IS FOR THE EASY (1) SECTION OF THE ASSIGNMENT /////////////////////////////////////////////////////
 //// DRIVER: LEE     NAVIAGATOR: BELLUL
 
 /*
@@ -12,32 +12,19 @@ Output: Even numbers: [2, 4, 16]
   Odd Numbers: [7, 11, 15]
 */
 
-const ranNum = [2, 3, 4, 5, 33, 33, 212, 11, 33];
-
 const evenOddFunction = function (ranNum) {
 
-    for (var i = 0; i < ranNum.length; i++) {
+    let evens = ranNum.filter(number => number % 2 == 0);
+    let odds = ranNum.filter(number => number % 2 !== 0);
 
-        if ((ranNum[i] % 2) != 1) {
-            evens.push(ranNum[i]);
-            console.log(evens);
-        } else {
-            odds.push(ranNum[i]);
-            console.log(odds);
-        }
-
-    }
+    console.log(evens);
+    console.log(odds);
 }
 
+evenOddFunction([2, 3, 4, 5, 33, 33, 212, 11, 33]);
 
-evenOddFunction(ranNum)
-console.log(evens);
-console.log(odds);
 
-const evens = [];
-const odds = [];
-
-///////////////////////////////// THE BELOW IS THE EASY (2) SECTION OF THE ASSIGNMENT /////////////////////////////////////////////////////////////////////
+///////////////////////////////// THE BELOW IS THE EASY (2) SECTION OF THE ASSIGNMENT ////////////////////////////////////////////////
 //// DRIVER: BELLUL     NAVIAGATOR: LEE
 
 /*
@@ -67,7 +54,7 @@ const checkPrime = num.filter(function (number) {
 
 console.log(checkPrime)
 
-///////////////////////////////// BELOW IS THE MEDIUM (1) SECTION OF THE ASSIGNMENT /////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// BELOW IS THE MEDIUM (1) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////
 //// DRIVER: LEE     NAVIAGATOR: BELLUL
 
 /*
@@ -82,20 +69,20 @@ Input: vowelChecker(‘a’)
 Output: ‘This is a vowel’
 */
 
-// function isVowel(str) {
-//     const value = ["a", "e", "i", "o", "u"].indexOf(str.toLowerCase()) !== -1
+function isVowel(str) {
+    const value = ["a", "e", "i", "o", "u"].indexOf(str.toLowerCase()) !== -1
 
-//     if (value) {
-//         return console.log(`This letter: ${str} is a vowel`);
+    if (value) {
+        return console.log(`This letter: ${str} is a vowel`);
 
-//     } else {
-//         return console.log(`This letter: ${str} is NOT a vowel`);
-//     }
-// }
+    } else {
+        return console.log(`This letter: ${str} is NOT a vowel`);
+    }
+}
 
-// isVowel("o");
-
-///////////////////////////////// BELOW IS THE MEDIUM (2) SECTION OF THE ASSIGNMENT //////////////////////////////////////////////////////////////////////////////
+isVowel("o");
+isVowel("k");
+///////////////////////////////// BELOW IS THE MEDIUM (2) SECTION OF THE ASSIGNMENT ////////////////////////////////////////////////////
 //// DRIVER: BELLUL     NAVIAGATOR: LEE
 
 /*
@@ -133,7 +120,7 @@ const stringAnagram = function (str1, str2) {
 console.log(stringAnagram("So dark the con of man", "Madonna of the Rocks"));
 
 
-///////////////////////////////// BELOW IS THE MEDIUM (3) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////////
+///////////////////////////////// BELOW IS THE MEDIUM (3) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////
 //// DRIVER: Lee     NAVIAGATOR: BELLUL
 
 /*
@@ -170,7 +157,7 @@ const biggestRemainder = function (num1, num2) {
 
 console.log(biggestRemainder(336, 360));
 
-///////////////////////////////// BELOW IS THE MEDIUM (4) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////////
+///////////////////////////////// BELOW IS THE MEDIUM (4) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////
 //// DRIVER: BELLUL     NAVIAGATOR: LEE
 
 /*
@@ -200,7 +187,7 @@ var car = {
     model: "Sudan",
     year: 1970,
     color: "Red",
-    mileage: 50,
+    mileage: 0,
     driveToWork: function () {
         const oldMile = this.mileage
         this.mileage = this.mileage + 33
@@ -223,3 +210,40 @@ car.driveAroundTheWorld()
 car.runErrands()
 car.driveToWork()
 
+///////////////////////////////// BELOW IS THE HARD SECTION OF THE ASSIGNMENT /////////////////////////////////////////////////////////////
+//// DRIVER: Lee     NAVIAGATOR: BELLUL
+
+// Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of
+// matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
+// Example 1:
+// Input: str = “{hello world}” brackets(srt)
+// Output: True
+// Example 2:
+// Input: str = “{hello world]” brackets(srt)
+// Output: False
+
+let isBalanced = (input) => {
+
+    let brackets = "[]{}()"
+    let stack = []
+
+    for (let bracket of input) {
+        let bracketsIndex = brackets.indexOf(bracket)
+
+        if (bracketsIndex === -1) {
+            continue
+        }
+
+        if (bracketsIndex % 2 === 0) {
+            stack.push(bracketsIndex + 1)
+        } else {
+            if (stack.pop() !== bracketsIndex) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0
+}
+
+console.log(isBalanced(`{hello world)`))
+console.log(isBalanced(`{hello world}`))
