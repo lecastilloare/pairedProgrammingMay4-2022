@@ -134,7 +134,7 @@ console.log(stringAnagram("So dark the con of man", "Madonna of the Rocks"));
 
 
 ///////////////////////////////// BELOW IS THE MEDIUM (3) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////////
-    //// DRIVER: Lee     NAVIAGATOR: BELLUL
+//// DRIVER: Lee     NAVIAGATOR: BELLUL
 
 /*
 MEDIUM(3)
@@ -171,7 +171,7 @@ const biggestRemainder = function (num1, num2) {
 console.log(biggestRemainder(336, 360));
 
 ///////////////////////////////// BELOW IS THE MEDIUM (4) SECTION OF THE ASSIGNMENT ///////////////////////////////////////////////////////////////////////////
-    //// DRIVER: BELLUL     NAVIAGATOR: LEE
+//// DRIVER: BELLUL     NAVIAGATOR: LEE
 
 /*
 Medium(4)
@@ -201,17 +201,17 @@ var car = {
     year: 1970,
     color: "Red",
     mileage: 50,
-    driveToWork: function(){
+    driveToWork: function () {
         const oldMile = this.mileage
         this.mileage = this.mileage + 33
         return console.log(`old mileage: ${oldMile} | new mileage: ${this.mileage}`)
     },
-    driveAroundTheWorld: function(){
+    driveAroundTheWorld: function () {
         const oldMile = this.mileage
         this.mileage = this.mileage + 2400
         return console.log(`old mileage: ${oldMile} | new mileage: ${this.mileage}`)
     },
-        runErrands: function(){
+    runErrands: function () {
         const oldMile = this.mileage
         this.mileage = this.mileage + 30
         return console.log(`old mileage: ${oldMile} | new mileage: ${this.mileage}`)
